@@ -1,0 +1,12 @@
+Anton;30.0;Renault Twingo
+Kevin;5.0;Audi A1
+Max;15.0;Audi A1
+Anton;30.0;Renault Twingo
+Keven;50.0;Fiat Punto
+Anton;5.0;Fiat Punto
+Max;25.0;Renault Twingo
+Keven;15.0;Fiat Punto
+Max;34.0;Audi A1
+Anton;13.0;Audi A1
+Oliver;30.0;Fiat Punto
+Peter;35.0;Renault Twingo

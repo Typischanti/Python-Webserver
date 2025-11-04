@@ -1,0 +1,7 @@
+Gesamtkilometer: 287.0 km
+Anton: 78.0 km
+Keven: 65.0 km
+Kevin: 5.0 km
+Max: 74.0 km
+Oliver: 30.0 km
+Peter: 35.0 km
