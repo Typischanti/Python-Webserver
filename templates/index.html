@@ -1,6 +1,7 @@
 <html>
     <body>
         <h1>Daten</h1>
+        <h2>{{ eintrag.kilometer_pro_fahrer }}</h2>
         <ul>
             {% for eintrag in daten %}
             <li>{{ eintrag.name }} - {{ eintrag.kilometer }} - {{ eintrag.auto}}</li>
