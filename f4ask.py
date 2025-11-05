@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from collections import defaultdict
 
 app = Flask(__name__)
 
@@ -25,7 +24,7 @@ for fahrer in fahrerliste:
 
 
 @app.route("/")
-def Gesamtkilometer():
+def fahrer_liste():
     with open("fahrtenbuch.txt", "r", encoding="utf-8") as f:
         daten = f.read()
 
@@ -38,26 +37,19 @@ def Gesamtkilometer():
     return render_template("index.html", daten=übergabe_daten)
 
 
-def kilometer_pro_fahrer():
-    summen = defaultdict(float)
-
-    with open("Fahrtenbuch.txt", "r", encoding="utf-8") as f:
+@app.route("/kilometer")
+def gesamt_kilometer():
+    gesamt_werte = {}
+    with open("fahrtenbuch.txt", "r", encoding="utf-8") as f:
         for zeile in f:
             teile = zeile.strip().split(";")
-            if len(teile) <= max(0, 1):
-                continue
-            key = teile[0].strip()
-            try:
-                wert = float(teile[1].strip())
-                summen[key] += wert
-            except ValueError:
-                continue
-
-    übergabe_daten = []
-    for zeile in summen.strip().split("\n"):
-        teile = zeile.split(";")
-        übergabe_daten.append({"kilometer_pro_fahrer": float(summen)})
-    return render_template("index.html", daten=übergabe_daten)
+            fahrername = teile[0]
+            kilometer = float(teile[1])
+            if fahrername in gesamt_werte:
+                gesamt_werte[fahrername] += kilometer
+            else:
+                gesamt_werte[fahrername] = kilometer
+    return str(gesamt_werte)
 
 
 if __name__ == "__main__":
